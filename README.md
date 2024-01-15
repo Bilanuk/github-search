@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/45a30eb1-e472-42b4-af8d-932db21d8dc0/deploy-status)](https://app.netlify.com/sites/lighthearted-tulumba-953a15/deploys)
+
 # GitHub Search Interface
 
 ## To run the project locally
