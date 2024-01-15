@@ -2,11 +2,11 @@ import { useLazyQuery } from '@apollo/client'
 import { GET_REPOSITORIES } from '../queries'
 import React, { useCallback, useState } from 'react'
 import { debounce } from 'lodash'
-import RepositoryCard from '../components/RepositoryCard'
-import { Repository } from '../__generated__/graphql'
 import { Box, TextField } from '@mui/material'
 
-import CiricularProgress from '@mui/material/CircularProgress'
+import LoadingIndicator from '../components/LoadingIndicator'
+import RepositoryList from '../components/RepositoryList'
+import { RepositoryWithRating } from '../store/repository/repositorySlice'
 
 function SearchPage() {
     const [query, setQuery] = useState<string>('')
@@ -39,29 +39,12 @@ function SearchPage() {
                 autoComplete={'off'}
                 onChange={(event) => handleInputChange(event.target.value)}
             />
-            {loading && (
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        marginTop: '200px',
-                    }}
-                >
-                    <CiricularProgress size={100} color="primary" />
-                </Box>
-            )}
-            {data && data?.search?.repos?.length === 0 && (
-                <p>No repositories found</p>
-            )}
-            {data && (
-                <div>
-                    {data?.search?.repos?.map((repository: any) => (
-                        <RepositoryCard
-                            key={repository.id}
-                            repository={repository as Repository}
-                        />
-                    ))}
-                </div>
+            {loading ? (
+                <LoadingIndicator loading={loading} />
+            ) : (
+                <RepositoryList
+                    repositories={data?.search?.repos as RepositoryWithRating[]}
+                />
             )}
         </Box>
     )
