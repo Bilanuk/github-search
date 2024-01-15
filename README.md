@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/45a30eb1-e472-42b4-af8d-932db21d8dc0/deploy-status)](https://app.netlify.com/sites/lighthearted-tulumba-953a15/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/424abd99-17c8-457f-8af3-ecb3ac553e0b/deploy-status)](https://subtle-kashata-b3a75c.netlify.app/)
 
 # GitHub Search Interface
 
