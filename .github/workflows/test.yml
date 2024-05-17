@@ -1,0 +1,24 @@
+name: Print Environment Variables
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  print-vars:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print all environment variables
+        run: |
+          echo "Listing all environment variables..."
+          env
+      - name: Prine AWS_REGION from vars
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
+        run: |
+          echo "AWS_REGION: $AWS_REGION"
